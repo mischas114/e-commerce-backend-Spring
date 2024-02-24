@@ -1,0 +1,51 @@
+@startuml
+
+entity "LokalerUser" as LokalerUser {
+  +id : Long
+  --
+  username : String
+  passwort : String
+  email : String
+  vorname : String
+  nachname : String
+}
+
+entity "Adresse" as Adresse {
+  +id : Long
+  --
+  addressZeile1 : String
+  addressZeile2 : String
+  stadt : String
+}
+
+entity "Produkt" as Produkt {
+  +id : Long
+  --
+  name : String
+  kurzeBeschreibung : String
+  langeBeschreibung : String
+  preis : double
+}
+
+entity "Inventar" as Inventar {
+  +id : Long
+}
+
+entity "Bestellung" as Bestellung {
+  +id : Long
+}
+
+entity "BestellungMengen" as BestellungMengen {
+  +id : Long
+  --
+  menge : Integer
+}
+
+LokalerUser "1" -- "0..*" Adresse : besitzt
+LokalerUser "1" -- "0..*" Bestellung : hat
+Produkt "1" -- "1" Inventar : hat
+Produkt "1" -- "0..*" BestellungMengen : enthält
+Bestellung "1" -- "0..*" BestellungMengen : hat
+Bestellung "1" -- "1" Adresse : hat
+
+@enduml
