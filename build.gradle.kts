@@ -27,10 +27,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("com.auth0:java-jwt:4.4.0")
+
 	compileOnly("org.projectlombok:lombok")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
 	annotationProcessor("org.projectlombok:lombok")
+
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
